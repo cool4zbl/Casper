@@ -41,9 +41,11 @@ gulp.task('css', function () {
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('../tmp/assets/built'))
         .pipe(gulp.dest('assets/built/'))
         .pipe(livereload());
 });
+
 
 gulp.task('watch', function () {
     gulp.watch('assets/css/**', ['css']);
